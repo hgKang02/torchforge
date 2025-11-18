@@ -153,6 +153,7 @@ class Slurmlauncher(BaseLauncher):
         server_info = await commands.get_or_create(
             "forge_job",
             server_config,
+            scheduler_args={"srun_args": ["--exclusive"]},
             force_restart=False,
         )
         alloc = RemoteAllocator(
